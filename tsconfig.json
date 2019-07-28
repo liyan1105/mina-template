@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "outDir": "./dist",
+        "target": "es5",
+        "preserveConstEnums": true,
+        "noImplicitAny": true,
+        "typeRoots": ["./typings"],
+    },
+    "include": [
+        "src/**/*"
+    ]
+}

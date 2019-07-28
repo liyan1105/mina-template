@@ -1,0 +1,28 @@
+{
+  "name": "mina-template",
+  "version": "1.0.0",
+  "description": "mina app template",
+  "main": "index.js",
+  "author": "liyan",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "rimraf dist -fr && webpack --mode=development"
+  },
+  "dependencies": {
+    "global": "^4.4.0",
+    "less": "^3.9.0",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.5.2"
+  },
+  "devDependencies": {
+    "file-loader": "^4.1.0",
+    "less-loader": "^5.0.0",
+    "mini-program-webpack-loader": "^0.2.13-beta.1",
+    "ts-loader": "^6.0.4",
+    "tslint": "^5.18.0",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6",
+    "wxml-loader": "^0.3.0"
+  }
+}
