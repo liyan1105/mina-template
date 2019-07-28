@@ -46,7 +46,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.json|\.wxml/,
+        test: /\.(json|wxml)$/,
         type: 'javascript/auto',
         use: {
           loader: 'file-loader',
@@ -54,6 +54,17 @@ module.exports = {
             name: '[path][name].[ext]',
             useRelativePath: true,
             context: path.resolve('src')
+          }
+        }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        type: 'javascript/auto',
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name][hash].[ext]',
+            output: 'built'
           }
         }
       }
