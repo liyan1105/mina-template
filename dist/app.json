@@ -2,6 +2,9 @@
   "pages": [
     "pages/index/index"
   ],
+  "subPackages": [],
+  "plugins": {},
+  "preloadRule": {},
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

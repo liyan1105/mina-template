@@ -10,8 +10,14 @@ webpackRequire(
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("App({\r\n    onLaunch: function (options) {\r\n        console.log(\"启动参数：\", options);\r\n    }\r\n});\r\n\n\n//# sourceURL=webpack:///./app.ts?");
+App({
+    onLaunch: function (options) {
+        console.log("启动参数：", options);
+    }
+});
+
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=app.js.map
