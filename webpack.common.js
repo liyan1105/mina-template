@@ -5,6 +5,9 @@ const copyPlugin = require('copy-webpack-plugin');
 module.exports = {
   context: path.resolve(__dirname, './src'),
   entry: path.resolve('./src/app.json'),
+  output: {
+    publicPath: '/built/',
+  },
   module: {
     rules: [
       {
@@ -58,13 +61,13 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
-        type: 'javascript/auto',
+        test: /\.(png|jpe?g|gif)$/i,
         use: {
-          loader: 'file-loader',
+          loader: 'url-loader',
           options: {
-            name: '[path][name][hash].[ext]',
-            output: 'built'
+            limit: 8192,
+            name: '[name][hash:8].[ext]',
+            outputPath: 'images/'
           }
         }
       }
