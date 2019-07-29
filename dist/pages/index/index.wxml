@@ -1,5 +1,0 @@
-<!-- index.wxml -->
-<view class="container">
-  <view class='logo'></view>
-  <view>这是一个测试！！！</view>
-</view>

@@ -1,1 +1,0 @@
-var webpackRequire=require("./../../webpack-require");webpackRequire("7",{7:function(e,o){Page({onLoad:function(){console.log("进入首页...")}})}});

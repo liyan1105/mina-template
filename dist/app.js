@@ -1,1 +1,0 @@
-var webpackRequire=require("./webpack-require");webpackRequire("8",{8:function(e,c){App({onLaunch:function(e){console.log("启动参数：",e)}})}});
