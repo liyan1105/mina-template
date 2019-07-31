@@ -1,12 +1,12 @@
 const path = require('path');
 const minaPlugin = require('mini-program-webpack-loader').plugin;
-const copyPlugin = require('copy-webpack-plugin');
+const fileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, './src'),
   entry: path.resolve('./src/app.json'),
   output: {
-    publicPath: '/built/',
+    path: path.resolve('./dist')
   },
   module: {
     rules: [
@@ -30,11 +30,17 @@ module.exports = {
               context: path.resolve('src')
             }
           },
+          'extract-loader',
           {
-            loader: 'less-loader'
-          }
+            loader: 'css-loader',
+            options: {
+              sourceMap: false,
+            }
+          },
+          'less-loader'
         ]
       },
+
       {
         test: /\.wxml$/,
         include: /src/,
@@ -62,14 +68,16 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 8192,
-            name: '[name][hash:8].[ext]',
-            outputPath: 'images/'
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: '[name][hash:8].[ext]',
+              outputPath: 'images/'
+            }
           }
-        }]
+        ]
       }
     ]
   },
@@ -80,8 +88,26 @@ module.exports = {
     new minaPlugin({
       forPlugin: false
     }),
-    new copyPlugin([
-      { from: path.resolve('project.config.json'), to: path.resolve('./dist') }
-    ])
+    new fileManagerPlugin({
+      onStart: {
+        mkdir: [
+          path.resolve('./built/')
+        ]
+      },
+      onEnd: {
+        copy: [
+          {
+            source: path.resolve('project.config.json'),
+            destination: path.resolve('./dist')
+          }
+        ],
+        move: [
+          {
+            source: path.resolve('./dist/images/'),
+            destination: path.resolve('./built/images/')
+          }
+        ]
+      }
+    })
   ]
 };

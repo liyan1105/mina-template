@@ -3,4 +3,7 @@
 
  module.exports = merge(common, {
    mode: 'production',
+   output: {
+    publicPath: 'http://www.liyan.com:9012/',
+  },
  }); 
